@@ -17,11 +17,11 @@ public class PrintSign {
     private final char STICK_CONNECTOR_CHAR = '\u2566';
     private final char STICK_CHAR = '\u2551';
 
-    PrintSign(String[] messages) {
+    public PrintSign(String[] messages) {
         this(messages, 0);
     }
 
-    PrintSign(String[] messages, int stickHeight) {
+    public PrintSign(String[] messages, int stickHeight) {
         this.messages = messages;
         this.stickHeight = stickHeight < 0 ? 0 : stickHeight;
         generateSignString();
