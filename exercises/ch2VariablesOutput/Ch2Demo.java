@@ -1,15 +1,12 @@
-package exercises;
+package exercises.ch2VariablesOutput;
 
 import java.util.Formatter;
 import java.util.Locale;
 
-public class Chapter2VariablesOutput {
-    public static void main(String... args) {
+import DinoProfile.DinoDiet;
 
-        enum DinoDiet {
-            HERBIVORE,
-            CARNIVORE
-        }
+public class Ch2Demo {
+    public static void main(String... args) {
 
         class Person {
             private String name;
