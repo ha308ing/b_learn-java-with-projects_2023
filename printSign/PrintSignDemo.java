@@ -8,18 +8,20 @@
 
 package printSign;
 
+import Employee.Employee;
+import Park.Park;
+
 public class PrintSignDemo {
     public static void main(String... args) {
-        String name = "Peter";
-        String position = "park manager";
+        Employee employee = new Employee("Peter", "park manager");
 
-        String openingHours = "08:00";
-        String closingHours = "20:00";
+        Park park = new Park("Mesozoic Eden", "08:00", "20:00", 2400, 75);
 
         String[] messages = {
-                "Welcome to Mesozoic Eden:",
-                "My name is " + name + " and I am a " + position + " in Mesozoic Eden.",
-                "Our working hours: from " + openingHours + " to " + closingHours,
+                "Welcome to " + park.getName() + "!",
+                "My name is " + employee.getName() + " and I am a " + employee.getRole() + " in " + park.getName()
+                        + ".",
+                "Our working hours: from " + park.getOpeningHours() + " till " + park.getClosingHours(),
                 "",
                 "Be safe ;-)" };
 
