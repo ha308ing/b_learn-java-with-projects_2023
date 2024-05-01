@@ -1,17 +1,19 @@
 package Park;
 
+import java.time.LocalTime;
+
 public class Park {
     private String name;
-    private String openingHours;
-    private String closingHours;
+    private LocalTime openingHours;
+    private LocalTime closingHours;
     private int maxCapacity;
     private int currentCapacity;
     private int safetyRating;
 
     public Park(String name, String openingHours, String closingHours, int maxCapacity, int safetyRating) {
         this.name = name;
-        this.openingHours = openingHours;
-        this.closingHours = closingHours;
+        this.openingHours = LocalTime.parse(openingHours);
+        this.closingHours = LocalTime.parse(closingHours);
         this.maxCapacity = maxCapacity;
         this.safetyRating = safetyRating;
     }
@@ -20,11 +22,11 @@ public class Park {
         return name;
     }
 
-    public String getOpeningHours() {
+    public LocalTime getOpeningHours() {
         return openingHours;
     }
 
-    public String getClosingHours() {
+    public LocalTime getClosingHours() {
         return closingHours;
     }
 
@@ -80,6 +82,18 @@ public class Park {
 
     public int getSafetyRating() {
         return safetyRating;
+    }
+
+    public boolean isOpen(LocalTime time) {
+        int compareOpening = time.compareTo(openingHours);
+        int compareClosing = time.compareTo(closingHours);
+        boolean isWithinWorkingHours = compareClosing <= 0 && compareOpening >= 0;
+        return isWithinWorkingHours;
+    }
+
+    public boolean isOpen() {
+        LocalTime time = LocalTime.now();
+        return isOpen(time);
     }
 
 }

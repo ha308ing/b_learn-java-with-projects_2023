@@ -6,18 +6,20 @@ package exercises.ch3OperatorsAndCasting;
 import java.util.Formatter;
 import java.util.Locale;
 
-import DinoProfile.DinoDiet;
 import DinoProfile.DinoProfile;
+import DinoProfile.DinoSpecies;
 
 public class AmountOfFood {
     public static void main(String... args) {
 
-        DinoProfile dinoOne = new DinoProfile("greg", 13, "ground", DinoDiet.CARNIVORE, 2000, 0.05, 2);
+        DinoProfile dinoOne = new DinoProfile("greg", 13, DinoSpecies.ANKYLOSAURUS, 2000, 65, 35, 17, 0.05);
 
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.US);
 
-        formatter.format("Ammount of food to feed %s per day is %.2f: %d times with %.2f kg", dinoOne.getName(),
+        formatter.format("Amount of food to feed %s (%s size) per day is %.2f: %d times with %.2f kg",
+                dinoOne.getName(),
+                dinoOne.getSize(),
                 dinoOne.getAmountOfFoodPerDay(), dinoOne.getFeedingsPerDay(), dinoOne.getAmountOfFoodPerFeeding());
 
         System.out.println(formatter);

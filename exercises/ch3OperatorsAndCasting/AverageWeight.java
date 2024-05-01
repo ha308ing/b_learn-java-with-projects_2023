@@ -5,14 +5,14 @@ package exercises.ch3OperatorsAndCasting;
 import java.util.Formatter;
 import java.util.Locale;
 
-import DinoProfile.DinoDiet;
 import DinoProfile.DinoProfile;
+import DinoProfile.DinoSpecies;
 
 public class AverageWeight {
     public static void main(String... args) {
-        DinoProfile dinoOne = new DinoProfile("greg", 13, "ground", DinoDiet.CARNIVORE, 13);
+        DinoProfile dinoOne = new DinoProfile("greg", 13, DinoSpecies.ALLOSAURUS, 13);
 
-        DinoProfile dinoTwo = new DinoProfile("fred", 17, "fire", DinoDiet.HERBIVORE, 44);
+        DinoProfile dinoTwo = new DinoProfile("fred", 17, DinoSpecies.APATOSAURUS, 44);
 
         double averageWeight = getAverageWeight(dinoOne, dinoTwo);
 
