@@ -5,8 +5,8 @@ import java.util.Scanner;
 public enum DinoSpecies {
     ALBERTOSAURUS(DinoDiet.HERBIVORE),
     ALLOSAURUS(DinoDiet.CARNIVORE),
-    ANATOTITAN(DinoDiet.HERBIVORE, 25),
-    ANKYLOSAURUS(DinoDiet.CARNIVORE),
+    ANATOTITAN(3, DinoDiet.HERBIVORE, 0.03, 10),
+    ANKYLOSAURUS(6, DinoDiet.CARNIVORE, 0.06, 7),
     APATOSAURUS(DinoDiet.HERBIVORE);
     // BAROSAURUS(DinoDiet.HERBIVORE),
     // BRACHIOSAURUS(DinoDiet.CARNIVORE),
@@ -31,13 +31,17 @@ public enum DinoSpecies {
 
     protected final DinoDiet diet;
     protected final int requiredExperience;
+    protected final int feedingHour;
+    protected final double metabolicRate;
 
     DinoSpecies(DinoDiet dinoDiet) {
-        this(dinoDiet, 5);
+        this(5, dinoDiet, 0.05, 8);
     }
 
-    DinoSpecies(DinoDiet dinoDiet, int requiredExperience) {
+    DinoSpecies(int requiredExperience, DinoDiet dinoDiet, double metabolicRate, int feedingHour) {
         diet = dinoDiet;
+        this.feedingHour = feedingHour < 0 ? 0 : feedingHour > 24 ? 23 : feedingHour;
+        this.metabolicRate = metabolicRate;
         this.requiredExperience = requiredExperience;
     }
 
@@ -70,4 +74,15 @@ public enum DinoSpecies {
         return species;
     }
 
+    public int getFeedingHour() {
+        return feedingHour;
+    }
+
+    public DinoDiet getDiet() {
+        return diet;
+    }
+
+    public double getMetabolicRate() {
+        return metabolicRate;
+    }
 }

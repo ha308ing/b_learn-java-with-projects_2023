@@ -11,7 +11,7 @@ public class DetermineEnclosure {
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb);
 
-        final DinoProfile dino = new DinoProfile("greg", 12, DinoSpecies.ALLOSAURUS, 17, 75, 65, 25, 0.3);
+        final DinoProfile dino = new DinoProfile("greg", 12, DinoSpecies.ALLOSAURUS, 17, 75, 65, 25);
 
         final String dinoName = dino.getName();
         final DinoSize dinoSize = dino.getSize();

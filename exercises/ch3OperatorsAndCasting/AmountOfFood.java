@@ -12,7 +12,7 @@ import DinoProfile.DinoSpecies;
 public class AmountOfFood {
     public static void main(String... args) {
 
-        DinoProfile dinoOne = new DinoProfile("greg", 13, DinoSpecies.ANKYLOSAURUS, 2000, 65, 35, 17, 0.05);
+        DinoProfile dinoOne = new DinoProfile("greg", 13, DinoSpecies.ANKYLOSAURUS, 2000, 65, 35, 17);
 
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.US);

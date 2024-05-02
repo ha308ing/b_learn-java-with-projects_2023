@@ -20,19 +20,20 @@ public class DinoProfile {
      */
     private double metabolicRate;
     private double amountOfFoodPerDay;
+    private int feedingHour;
 
     public DinoProfile(String name, int age, DinoSpecies species, int weight) {
-        this(name, age, species, weight, 0, 0, 0, 0);
+        this(name, age, species, weight, 0, 0, 0);
     }
 
-    public DinoProfile(String name, int age, DinoSpecies species, int weight, int length, int height, int width,
-            double metabolicRate) {
+    public DinoProfile(String name, int age, DinoSpecies species, int weight, int length, int height, int width) {
         this.name = name;
         this.age = age;
         this.species = species;
         this.diet = species.diet;
         this.weight = weight;
-        this.metabolicRate = metabolicRate;
+        metabolicRate = species.getMetabolicRate();
+        feedingHour = species.getFeedingHour();
         this.feedingsPerDay = calculateFeedingsPerDay();
         this.amountOfFoodPerDay = calculateAmountOfFoodForDay();
         this.length = length;
@@ -87,11 +88,15 @@ public class DinoProfile {
     }
 
     public double getAmountOfFoodPerFeeding() {
-        return this.getAmountOfFoodPerDay() / feedingsPerDay;
+        return amountOfFoodPerDay / feedingsPerDay;
     }
 
     public int getFeedingsPerDay() {
         return feedingsPerDay;
+    }
+
+    public int getFeedingHour() {
+        return feedingHour;
     }
 
     private DinoSize calculateSize() {
